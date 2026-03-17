@@ -10,7 +10,7 @@ except:
 
 app = Flask(__name__)
 
-# load ML model
+
 model = pickle.load(open("phishing_model.pkl", "rb"))
 
 
