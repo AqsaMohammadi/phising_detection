@@ -484,12 +484,10 @@
                 <button class="copy-btn" onclick="copyToClipboard('{{ url_display|e }}')" title="Copy URL">📋</button>
             </div>
 
-            <!-- Main Risk Status -->
             <div class="status-badge {% if prediction_text == 'High Risk' %}phishing{% else %}legitimate{% endif %}">
                 {{ prediction_text }}
             </div>
 
-            <!-- Detailed Analysis Table -->
             <h4 style="margin: 25px 0 15px 0; color: #333;">🔍 Detailed Analysis</h4>
             <table class="analysis-table">
                 <tr>
@@ -545,7 +543,6 @@
                 </tr>
             </table>
 
-            <!-- Risk Explanation -->
             <div class="risk-explanation">
                 <strong>Why this risk level?</strong><br>
                 {% if prediction_text == 'High Risk' %}
@@ -565,7 +562,6 @@
                 {% endif %}
             </div>
 
-            <!-- Safety Recommendations -->
             <div class="security-note">
                 <h4>📋 Safety Recommendations</h4>
                 <ul>
@@ -583,7 +579,6 @@
                 </ul>
             </div>
 
-            <!-- Action Buttons -->
             <div class="action-buttons">
                 <button onclick="window.print()" class="btn-secondary">
                     <span>📄</span> Print Report
@@ -601,19 +596,19 @@
     </div>
 
     <script>
-    // Helper function for the example links
+    
     function fillExample(url) {
         document.querySelector('input[name="url"]').value = url;
     }
 
-    // Helper function for copying to clipboard
+   
     function copyToClipboard(text) {
         navigator.clipboard.writeText(text).then(() => {
             alert('URL copied to clipboard!');
         });
     }
 
-    // Only initialize the chart if prediction data exists
+       
     {% if prediction_text %}
     const ctx = document.getElementById('riskChart').getContext('2d');
     
